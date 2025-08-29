@@ -9,14 +9,14 @@ class DataChecker:
 
     def check_and_load(self):
         try:
-            # 1. Проверка наличия файла
+            #  Проверка наличия файла
             if not os.path.exists(self.file_path):
                 raise FileNotFoundError("Файл не найден в директории")
 
-            # 2. Попытка открыть CSV
+            #  Попытка открыть CSV
             self.df = pandas.read_csv(self.file_path)
 
-            # 3. Проверка структуры 
+            #  Проверка структуры 
             for col in self.expected_columns:
                 if col not in self.df.columns:
                     raise ValueError("Отсутствует столбец: " + col)
